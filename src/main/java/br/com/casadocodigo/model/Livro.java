@@ -8,12 +8,15 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name="livro")
+@SequenceGenerator(name="sequence_livro", sequenceName = "SEQ_LIVRO", allocationSize = 1)
 public class Livro {
 	
 	@Id
 	@Column(name="id")
+	@GeneratedValue(generator="sequence_livro")
 	private Integer id;
 	
 	@Column(name="titulo")
